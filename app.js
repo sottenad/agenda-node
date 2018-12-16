@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 //====LIST DEPENDENCIES===//
 const express = require('express');
 const parseurl = require('parseurl');
@@ -8,16 +10,13 @@ const mongoose = require('mongoose');
 const Signature = require('./models/Signature.js')
 const app = express();
 const url = process.env.MONGOLAB_URI;
-
-
+console.log(url)
 
 //Allowing all for now.
 app.use(cors());
-//Enables pre-flight for all routes
-//app.options('*', cors()) 
-
-
 app.use(bodyParser.json())
+
+
 
 //=========================//
 
@@ -61,4 +60,4 @@ mongoose.connect(url, mongoConfig, function (err, db) {
  });
 
 
- app.listen(3001);
+ app.listen(9000);
